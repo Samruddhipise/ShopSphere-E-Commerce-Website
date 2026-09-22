@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopSphere Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#004e89,#ff6b35);
+overflow:hidden;
+}
+
+.container{
+width:900px;
+max-width:95%;
+display:flex;
+background:#fff;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
+animation:fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.left{
+width:45%;
+background:linear-gradient(135deg,#004e89,#1a237e);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:40px;
+text-align:center;
+}
+
+.left img{
+width:220px;
+margin-bottom:20px;
+}
+
+.left h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.left p{
+font-size:15px;
+line-height:1.7;
+opacity:0.9;
+}
+
+.right{
+width:55%;
+padding:50px;
+}
+
+.right h2{
+font-size:34px;
+margin-bottom:10px;
+color:#004e89;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:30px;
+}
+
+.input-box{
+margin-bottom:22px;
+}
+
+.input-box label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+color:#333;
+}
+
+.input-box input{
+width:100%;
+padding:14px;
+border:2px solid #ddd;
+border-radius:12px;
+font-size:15px;
+transition:0.3s;
+}
+
+.input-box input:focus{
+border-color:#ff6b35;
+outline:none;
+box-shadow:0 0 10px rgba(255,107,53,0.2);
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+font-size:14px;
+}
+
+.row a{
+text-decoration:none;
+color:#ff6b35;
+font-weight:600;
+}
+
+.btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#ff6b35,#f7b801);
+color:white;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px rgba(255,107,53,0.3);
+}
+
+.signup{
+text-align:center;
+margin-top:20px;
+font-size:14px;
+}
+
+.signup a{
+color:#ff6b35;
+font-weight:600;
+text-decoration:none;
+}
+
+.socials{
+display:flex;
+gap:15px;
+margin-top:25px;
+justify-content:center;
+}
+
+.socials button{
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:#f3f3f3;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.socials button:hover{
+background:#ff6b35;
+color:white;
+transform:scale(1.1);
+}
+
+@media(max-width:768px){
+
+.container{
+flex-direction:column;
+}
+
+.left,
+.right{
+width:100%;
+}
+
+.left{
+padding:30px 20px;
+}
+
+.right{
+padding:35px 25px;
+}
+
+.left h1{
+font-size:34px;
+}
+
+.right h2{
+font-size:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Shopping">
+
+<h1>ShopSphere</h1>
+
+<p>
+Welcome back to the ultimate online shopping experience.
+Login to continue shopping amazing products with exciting offers.
+</p>
+
+</div>
+
+<div class="right">
+
+<h2>Welcome Back 👋</h2>
+
+<p class="subtitle">Login to your ShopSphere account</p>
+
+<form>
+
+<div class="input-box">
+<label>Email Address</label>
+<input type="email" placeholder="Enter your email">
+</div>
+
+<div class="input-box">
+<label>Password</label>
+<input type="password" placeholder="Enter your password">
+</div>
+
+<div class="row">
+<label>
+<input type="checkbox"> Remember me
+</label>
+
+<a href="#">Forgot Password?</a>
+</div>
+
+<button type="submit" class="btn" onclick="loginUser(event)">Login</button>
+
+<div class="signup">
+Don't have an account?
+<a href="#">Create Account</a>
+</div>
+
+<div class="socials">
+<button>G</button>
+<button>f</button>
+<button></button>
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+function loginUser(event){
+event.preventDefault();
+
+const email=document.querySelector('input[type="email"]').value;
+const password=document.querySelector('input[type="password"]').value;
+
+if(email==="" || password===""){
+alert("Please enter email and password");
+return;
+}
+
+localStorage.setItem("user",email);
+
+window.location.href="index.html";
+}
+
+</script>
+
+</body>
+</html>
